@@ -10,15 +10,30 @@ alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
-alias sites="cd $HOME/Sites"
+alias js="cd $HOME/Documents/Development/javascript"
 
-# Laravel
-alias a="php artisan"
+# cd
+alias .='cd ..'
+alias ..='cd ../..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
 
-# Vagrant
-alias v="vagrant global-status"
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
-alias vssh="vagrant ssh"
-alias vreload="vagrant reload"
-alias vrebuild="vagrant destroy --force && vagrant up"
+# ls
+alias ll='ls -la'
+alias lt='ls -latr'
+
+# todo-txt
+alias t='todo.sh'
+
+# docker
+alias cleanupcontainers='docker ps -a | grep '"'"'weeks ago'"'"' | awk '"'"'{print $1}'"'"' | xargs docker rm'
+alias cleanupcontainersall='docker ps -a | grep '"'"' ago'"'"' | awk '"'"'{print $1}'"'"' | xargs docker rm'
+
+# youtube-dl
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
+alias ytdl='youtube-dl -c -r 80K -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'
+alias ytdl2='youtube-dl -c -r 160K -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'
+alias ytdl3='youtube-dl -c -r 240K -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'
+alias ytdl4='youtube-dl -c -r 360K -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'
+alias ytdl5='youtube-dl -c -r 480K -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'
+alias ytdlx='youtube-dl -c -o "~/Downloads/%(title)s-%(id)s.%(ext)s"'

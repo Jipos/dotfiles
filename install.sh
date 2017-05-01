@@ -14,25 +14,31 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Make ZSH the default shell environment
 chsh -s $(which zsh)
 
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+# install Nodejs
+nvm install 6
 
-# Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/lumen-installer laravel/valet tightenco/jigsaw spatie/http-status-check bramus/mixed-content-scan laravel/spark-installer
-
-# Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+# All `npm install <pkg>` commands will pin to the version that was available at the time you run the command
+npm config set save-exact = true
 
 # Install global NPM packages
-npm install --global yarn
+npm install -g yarn gulp yo
 
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-mkdir $HOME/Sites
+# Install SDKMAN (for managing JVM stuff)
+curl -s "https://get.sdkman.io" | bash
+source "/Users/kevinrogiers/.sdkman/bin/sdkman-init.sh"
+
+# Install JVM stuff
+# REMARK: installing java requires you to accept the license,
+#         which means some user interaction is required during the install script
+sdk install java
+sdk install maven
+sdk install gradle
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
